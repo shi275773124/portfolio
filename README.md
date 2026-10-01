@@ -39,6 +39,19 @@
 - **32/32**：故障注入组合矩阵全绿，且首战当场抓出一个真产品 bug
 - **265 项**：工资表机器闸门重算，Must Fix 清空才允许打款
 
+## 可运行 demo
+
+[`demo/falsify_report_gate.py`](demo/falsify_report_gate.py) — 我的机器闸门思想的浓缩演示（零依赖，Python 3.8+ 标准库）：
+
+```bash
+python demo/falsify_report_gate.py             # 审计一个带「假绿」bug 的样例报告 -> BLOCK
+python demo/falsify_report_gate.py --selftest  # 注入 4 个历史 bug，证明每条检查都会翻红
+```
+
+四条检查对应四个真实生产事故：跨表闭合（口径混用差 13.5%）、量级 sanity（CTR 1041% 列错位）、宣称 vs 产物（假绿：ROI 说修了没修）、窗口自证（滚动窗钳位偏差 11%）。
+
+核心哲学：**一条无法被证明会翻红的护栏不是护栏，只是注释**——所以 selftest 是闸门的一部分，不是附件。
+
 ---
 
 *注：本仓库为脱敏版（去店名/人名/部分绝对值）。联系我可见内部 receipts 与可运行的机器刀演示。*
