@@ -32,7 +32,7 @@ falsify_report_gate.py — 对抗审计闸门（脱敏可运行演示版）
   python falsify_report_gate.py             # 审计内置样例（含一个假绿 bug）→ BLOCK
   python falsify_report_gate.py --selftest  # 注入四个历史 bug，证明每条检查都翻红
 
-退出码：0 = PASS / PASS_WITH_DEDT，1 = BLOCK（存在 Must Fix）。
+退出码：0 = PASS / PASS_WITH_DEBT，1 = BLOCK（存在 Must Fix）。
 """
 
 import copy
